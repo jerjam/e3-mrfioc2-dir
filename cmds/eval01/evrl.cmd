@@ -1,6 +1,7 @@
 #!/bin/bash
 
 require mrfioc2,2.2.0-rc5
+require iocStats,ae5d083
 
 epicsEnvSet("IOC", "MTCA")
 epicsEnvSet("DEV", "EVRL")
@@ -10,6 +11,8 @@ dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(E
 
 ### needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
+
+iocshLoad("$(iocStats_DIR)/iocStats.iocsh", "IOCNAME=$(IOC):$(DEV)")`
 
 iocInit()
 
