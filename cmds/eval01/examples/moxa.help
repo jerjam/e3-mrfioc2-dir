@@ -1,0 +1,97 @@
+﻿Trying 10.0.5.55...
+Connected to 10.0.5.55.
+Escape character is '^]'.
+?
+OK1 - V2.0 - MINIMON - HELP
+---------------------------
+Basic Commands:
+c  <addr> [value]      - change byte at <addr>
+cw <addr> [value]      - change word at <addr>
+cl <addr> [value]      - change long at <addr>
+mt                     -  memory test
+cm                     -  compare two memory areas
+Configuration Commands:
+ba                     - board configuration ask
+bi                     - board information
+br                     - SIO baud rate enter
+bs                     - bootstring enter
+ip                     - IP configuration setup
+prim_ip                - primary IP configuration setup
+root_pw                - root password configuration ask
+ts                     - enable/disable debug timestamp
+Task Information Commands:
+ti                     - task information display
+ii                     - interrupt information display
+mi                     - memory information display
+tt                     - show active timers
+
+N.A.T. MCH commands:
+  reboot                - reboot card
+  printfreq             - print system frequencies
+  history       - print complete console history
+  update_firmware       - update firmware in flash
+  update_fpga           - update FPGA firmware
+  exit                  - exit from remote login
+  telnetd_restart       - restart Telnet daemon
+
+=== application commands: ===
+--- Configuration Support ---
+  mch                      - print MCH configuration
+  mchcfg                   - modify MCH configuration
+  upload_cfg               - upload switch/clock configuration via TFTP
+  cfg_ctrl_cmd             - configuration control command
+--- Debugging Support ---
+  csif_dbg                 - configure CM/ShM interface debug
+  imsg_dbg                 - configure IPMI MSG debug
+  lshm_dbg                 - configure local ShM debug
+  red_dbg                  - configure redundancy debug
+  rmcp_dbg                 - configure RMCP interface debug
+  sdrrep_dbg               - configure SDR repository debug
+  sel_dbg                  - configure SEL debug
+--- Print and Show Commands ---
+  idb_info                 - print IPMI data base information
+  imsg_info                - print IPMI MSG information
+  lshm_info                - print local ShM information
+  sdrrep_info              - print SDR repository information
+  sel_info                 - print SEL information
+  session_info             - print session management information
+  show_ekey            - show all activated connections
+  show_fru         - show all FRUs
+  show_fruinfo <fru_id>    - show FRU contents
+  show_cu                  - show Cooling Unit Status
+  show_pm                  - show Power Module Status
+  show_pwrconf             - show Backplane Power Configuration
+  show_sensorinfo <fru_id> - show sensors for FRU
+  show_urtm                - show voltages of uRTMs
+  show_clk <fru_id>        - show clock information
+  version                  - print firmware version information
+--- Network Support Commands ---
+  ni                       - print network configuration
+  arp                      - manipulate the system ARP cache, try 'arp -?'
+  ifconfig                 - print network configuration
+  ping <ip_address>        - send ICMP echo requests to host
+  ntpdate                  - set date from remote host, try 'ntpdate -?'
+  rdate                    - set date from remote host, try 'rdate -?'
+  sw_mp                    - switch management platform menu
+  vlanp_cfg                - Port based VLAN configuration
+  vlanq_cfg                - 802.1Q VLAN configuration
+  vlanx_cfg                - 802.1X VLAN configuration
+  qos_cfg                  - Quality of Service configuration
+  qos1p_cfg                - 802.1P configuration
+  mirr_cfg                 - ethernet port mirroring configuration
+  show_iffmode             - print current mode {SerDes|SGMII|Auto} of all GbE ports
+  show_gbe_links           - print current states of all GbE link
+  show_link_state<fru_id><Port> - print current link state
+  show_swp2p               - show  FRU info about p2p Ethernet record on backplane
+  rstp                     - rapid Spanning Tree Protocol: configuration menu
+  rstp_brief               - show configuration of the Rapid Spanning Tree Protocol
+  rstp_dump                - dump Rapid Spanning Tree Protocol stack information
+--- Other ---
+  date                     - print local and system time
+  diag                     - diagnose tools
+  fan_ctl                  - FAN control
+  shutdown <fru_id/all>    - graceful shutdown of FRU / all AMCs
+  shutdown <system/system_hard> - graceful shutdown system/ hard shutdown
+  fru_start <fru_id>       - graceful start of FRU
+nat>
+
