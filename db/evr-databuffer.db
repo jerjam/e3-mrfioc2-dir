@@ -1,0 +1,248 @@
+# This is protocol 0.0 date 20181212
+
+# Byte offset : 0 , Byte length : 2 - Protocol
+# Byte offset : 4 , Byte length : 4 - Beam Pulse ID
+# Byte offset : 8 , Byte length : 1 - Beam Present
+# Byte offset : 9 , Byte length : 1 - Beam Destination (according to ESS-0038258)
+# Byte offset : 10 , Byte length : 1 - Beam Mode (according to ESS-0038258)
+# Byte offset : 12 , Byte length : 4 - Intended Pulse Length
+# Byte offset : 16 , Byte length : 4 - Intended Proton Energy
+# Byte offset : 20 , Byte length : 4 - Intended Beam Current
+# Byte offset : 24 , Byte length : 1 - Raster Pattern
+# Byte offset : 25 , Byte length : 1 - Target Segment
+# Byte offset : 26 , Byte length : 1 - BCM calibration - needed?
+
+# Byte offset : 0 , Byte length : 2 - Protocol
+record(subArray, "$(SYS)-$(D):dbus-s8indx0-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-s8 CPP")
+  field(INDX, "0")
+  field(NELM, "1") # "2046")
+  field(MALM, "2") # "2046")
+  field(FTVL, "CHAR") # eventually should be UCHAR 
+}
+record(subArray, "$(SYS)-$(D):dbus-s8indx1-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-s8 CPP")
+  field(INDX, "1")
+  field(NELM, "1") # "2046")
+  field(MALM, "2") # "2046")
+  field(FTVL, "CHAR") # eventually should be UCHAR
+}
+record(calc, "$(SYS)-$(D):ProtoNum-RB_") { # this replaces the longin, since UCHAR has the same range as CHAR...
+  field(CALC, "A<0?A+256:A")
+  field(INPA, "$(SYS)-$(D):dbus-s8indx0-subA_ CPP")
+  field(SCAN, "Passive")
+}
+#record(longin, "$(SYS)-$(D):ProtoNum-RB_") {
+#  field(DTYP, "Soft Channel")
+#  field(INP, "$(SYS)-$(D):dbus-s8indx0-subA_ CPP")
+#  field(DRVL, "0") # field(LOPR, "0")
+#  field(DRVH, "255") # field(HOPR, "255")
+#}
+record(calc, "$(SYS)-$(D):ProtoVer-RB_") { # this replaces the longin, since UCHAR has the same range as CHAR...
+  field(CALC, "A<0?A+256:A")
+  field(INPA, "$(SYS)-$(D):dbus-s8indx1-subA_ CPP")
+  field(SCAN, "Passive")
+}
+#record(longin, "$(SYS)-$(D):ProtoVer-RB_") {
+#  field(DTYP, "Soft Channel")
+#  field(INP, "$(SYS)-$(D):dbus-s8indx1-subA_ CPP")
+#  field(DRVL, "0") # field(LOPR, "0")
+#  field(DRVH, "255") # field(HOPR, "255")
+#}
+record(calc, "$(SYS)-$(D):Protocol-RB") {
+  field(CALC, "A+0.001*B")
+  field(INPA, "$(SYS)-$(D):ProtoNum-RB_ CPP")
+  field(INPB, "$(SYS)-$(D):ProtoVer-RB_ CPP")
+  field(PREC, "3") # only works if "caget -s SYS-D:Protocol-RB"
+  field(SCAN, "Passive")
+}
+
+# Byte offset : 4 , Byte length : 4 - Beam Pulse ID
+# longin range [-2147483648,214748367]; stringin range [0,4294967295] but always show 3 fractional 0's
+# With 14 Hz, we use up the longin (only >0 part) in 4.8 years, and stringin in 9.7 years, but this is 4 byte limitation...
+# For now I leave longin but should be discussed with Timo
+record(subArray, "$(SYS)-$(D):dbus-u32indx1-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-u32 CPP")
+  field(INDX, "1")
+  field(NELM, "1") # "2046")
+  field(MALM, "2") # "2046")
+  field(FTVL, "ULONG")
+}
+record(longin, "$(SYS)-$(D):BeamID-RB") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-u32indx1-subA_ CPP")
+}
+
+# Byte offset : 8 , Byte length : 1 - Beam Present
+record(subArray, "$(SYS)-$(D):dbus-s8indx8-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-s8 CPP")
+  field(INDX, "8")
+  field(NELM, "1") # "2046")
+  field(MALM, "9") # "2046")
+  field(FTVL, "UCHAR")
+}
+record(bi, "$(SYS)-$(D):BeamPres-RB") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-s8indx8-subA_ CPP")
+  field(ZNAM, "Not present")
+  field(ONAM, "Present")
+}
+
+# Byte offset : 9 , Byte length : 1 - Beam Destination (according to ESS-0038258)
+record(subArray, "$(SYS)-$(D):dbus-s8indx9-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-s8 CPP")
+  field(INDX, "9")
+  field(NELM, "1") # "2046")
+  field(MALM, "10") # "2046")
+  field(FTVL, "UCHAR")
+}
+record(longin, "$(SYS)-$(D):BeamDest-RB") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-s8indx9-subA_ CPP")
+#  field(LOW, "0")
+#  field(HIGH, "8")
+}
+record(mbbi, "$(SYS)-$(D):BeamDest-I") {
+  field(DTYP, "Raw Soft Channel")
+  field(INP , "$(SYS)-$(D):BeamDest-RB CPP")
+  field(ZRST, "No destination")
+  field(ONST, "LEBT Faraday Cup")
+  field(TWST, "MEBT Faraday Cup")
+  field(THST, "DTL 2 Faraday Cup")
+  field(FRST, "DTL 4 Faraday Cup")
+  field(FVST, "Spokes Faraday Cup")
+  field(SXST, "MBL Beam Stop")
+  field(SVST, "Tuning Dump")
+  field(EIST, "Target")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(SXVL, "6")
+  field(SVVL, "7")
+  field(EIVL, "8")
+  field(NISV, "INVALID")
+  field(TESV, "INVALID")
+  field(ELSV, "INVALID")
+  field(TVSV, "INVALID")
+  field(TTSV, "INVALID")
+  field(FTSV, "INVALID")
+  field(FFSV, "INVALID")
+  field(UNSV, "INVALID")
+}
+
+# Byte offset : 10 , Byte length : 1 - Beam Mode (according to ESS-0038258)
+record(subArray, "$(SYS)-$(D):dbus-s8indx10-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-s8 CPP")
+  field(INDX, "10")
+  field(NELM, "1")  # "2046")
+  field(MALM, "11") # "2046")
+  field(FTVL, "UCHAR")
+}
+record(longin, "$(SYS)-$(D):BeamMode-RB") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-s8indx10-subA_ CPP")
+#  field(LOW, "0")
+#  field(HIGH, "8")
+}
+record(mbbi, "$(SYS)-$(D):BeamMode-I") {
+  field(DTYP, "Raw Soft Channel")
+  field(INP , "$(SYS)-$(D):BeamMode-RB CPP")
+  field(ZRST, "None")
+  field(ONST, "Probe Beam")
+  field(TWST, "Fast tuning")
+  field(THST, "Slow tuning")
+  field(FRST, "Fat probe")
+  field(FVST, "Slow Studies")
+  field(SXST, "Long pulse verification")
+  field(SVST, "Shielding verification")
+  field(EIST, "Production")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(SXVL, "6")
+  field(SVVL, "7")
+  field(EIVL, "8")
+  field(NISV, "INVALID")
+  field(TESV, "INVALID")
+  field(ELSV, "INVALID")
+  field(TVSV, "INVALID")
+  field(TTSV, "INVALID")
+  field(FTSV, "INVALID")
+  field(FFSV, "INVALID")
+  field(UNSV, "INVALID")
+}
+
+# Byte offset : 12 , Byte length : 4 - Intended Pulse Length
+record(subArray, "$(SYS)-$(D):dbus-u32indx3-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-u32 CPP")
+  field(INDX, "3")
+  field(NELM, "1") # "2046")
+  field(MALM, "4") # "2046")
+  field(FTVL, "ULONG")
+}
+record(ai, "$(SYS)-$(D):PulseLength-RB") {
+  field(DTYP, "Raw Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-u32indx3-subA_ CPP")
+  field(EGU, "ms")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.000001") # raw is ns
+#  field(LOW, "0.005")
+#  field(HIGH, "2.86")
+}
+
+# Byte offset : 16 , Byte length : 4 - Intended Proton Energy
+record(subArray, "$(SYS)-$(D):dbus-u32indx4-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-u32 CPP")
+  field(INDX, "4")
+  field(NELM, "1") # "2046")
+  field(MALM, "5") # "2046")
+  field(FTVL, "ULONG")
+}
+record(ai, "$(SYS)-$(D):ProtonEn-RB") {
+  field(DTYP, "Raw Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-u32indx4-subA_ CPP")
+  field(EGU, "MeV")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.000001") # raw is eV
+#  field(LOW, "0")
+#  field(HIGH, "???")
+}
+
+# Byte offset : 20 , Byte length : 4 - Intended Beam Current
+record(subArray, "$(SYS)-$(D):dbus-u32indx5-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-recv-u32 CPP")
+  field(INDX, "5")
+  field(NELM, "1") # "2046")
+  field(MALM, "6") # "2046")
+  field(FTVL, "ULONG")
+}
+record(ai, "$(SYS)-$(D):BeamCur-RB") {
+  field(DTYP, "Raw Soft Channel")
+  field(INP, "$(SYS)-$(D):dbus-u32indx5-subA_ CPP")
+  field(EGU, "mA")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.000001") # raw is nA, or should we do it pA?
+#  field(LOW, "0")
+#  field(HIGH, "???")
+}
+
+# Byte offset : 24 , Byte length : 1 - Raster Pattern
+# Byte offset : 25 , Byte length : 1 - Target Segment
+# Byte offset : 26 , Byte length : 1 - BCM calibration - needed?
+
+
