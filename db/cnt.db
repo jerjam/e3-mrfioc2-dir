@@ -14,7 +14,10 @@ record(calc, "$(SYS,undefined)-$(D,undefined):Cnt-Active-RB") {
 
 record(calc, "$(SYS,undefined)-$(D,undefined):Cnt-Passive-RB") {
   field(SCAN, "Passive")
-  field(CALC, "VAL+1")
+#  field(VAL , "0")
+  field(CALC, "A")
+  field(INPA, "$(SYS,undefined)-$(D,undefined):EvtECnt-I CPP")
+#  field(OUT,  "$(SYS,undefined)-$(D,undefined):ValOut PP")
 }
 
 record(ai, "$(SYS,undefined)-$(D,undefined):Ai") {

@@ -14,14 +14,28 @@ var evrMrmTimeNSOverflowThreshold 100000
 
 iocshLoad("$(iocStats_DIR)/iocStats.iocsh", "IOCNAME=$(IOC):$(DEV)")
 
+# Add a buffing IOC so simple counter/buffer
+dbLoadRecords("../db/cnt.db", "SYS=$(IOC), D=$(DEV)")
+
+#INITIALIZATION
 iocInit()
 
 ### Set delay compensation to 70 ns, needed to avoid timestamp issue
 dbpf $(IOC)-$(DEV):DC-Tgt-SP 70
 
 ### EVR standalone mode
+
+### TIMESTAMP CONFIGURATION
 ### Get current time from system clock, this will be used for the timestamps ###
-dbpf $(IOC)-$(DEV):TimeSrc-Sel "Sys.Clock"
+#it does not work dbpf $(IOC)-$(DEV):TimeSrc-Sel "Sys.Clock"
+#0-disabled -125 comes from evg; 1-external; 2-Sys.Clock
+dbpf $(IOC)-$(DEV):TimeSrc-Sel 2
+### Set the Time-I record, which holds the current time of the IOC and can be used as a timestamp source
+### TSE field -2 to get timestamp from device support (timing)
+##NOT SUPPORTED: dbpf $(IOC)-$(DEV):Time-I.TSE -2
+### EVNT field 14 to get processed on software (EPICS) event 14
+dbpf $(IOC)-$(DEV):Time-I.EVNT 14
+dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=EVRL, Code=14"
 
 ### Set up the prescaler that will trigger the sequencer at 14 Hz ###
 ### The value of the prescaler is the integer which gives the expected frequency (14 Hz in this example) when the event frequency (88.0525 MHz for ESS) is divided by the integer: 88.0525 MHz / 6289464 = 14 Hz
@@ -47,7 +61,7 @@ dbpf $(IOC)-$(DEV):Evt-Blink0-SP 14
 dbl > "$(IOC)-$(DEV)_PVs.list"
 
 ### Run the script that configures the events and timestamps of the sequence, more information below ###
-system("/bin/bash ../iocsh/evr_seq_ev14_14Hz.sh $(IOC) $(DEV)")
+system("/bin/bash ../iocsh/evr_seq_ev14_14Hz.bash $(IOC) $(DEV)")
 
 ### Forward events with EVR - it has to be disabled for the loopback link
 #pcidiagset 9 0 0
