@@ -1,8 +1,11 @@
+#!/bin/bash
+
 # require mrfioc2,2.2.0-rc5
 # require iocStats,ae5d083
 
-epicsEnvSet("IOCNAME0", "ICS-LAB:DIA-CNT-0")
-dbLoadRecords("./cnt.db", "IOC=$(IOCNAME0)")
+epicsEnvSet("IOC", "ICS-LAB:DIA")
+epicsEnvSet("DEV", "CNT-0")
+dbLoadRecords("../db/cnt.db", "SYS=$(IOC), D=$(DEV)")
 iocInit()
 
-dbl > "$(IOCNAME)_PVs.list"
+dbl > "$(IOC)-$(DEV)_PVs.list"

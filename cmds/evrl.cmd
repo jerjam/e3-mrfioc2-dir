@@ -12,7 +12,7 @@ dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(E
 ### needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
 
-iocshLoad("$(iocStats_DIR)/iocStats.iocsh", "IOCNAME=$(IOC):$(DEV)")`
+iocshLoad("$(iocStats_DIR)/iocStats.iocsh", "IOCNAME=$(IOC):$(DEV)")
 
 iocInit()
 
@@ -47,7 +47,7 @@ dbpf $(IOC)-$(DEV):Evt-Blink0-SP 14
 dbl > "$(IOC)-$(DEV)_PVs.list"
 
 ### Run the script that configures the events and timestamps of the sequence, more information below ###
-system("/bin/sh ./evr_seq_ev14_14Hz.sh $(IOC) $(DEV)")
+system("/bin/bash ../iocsh/evr_seq_ev14_14Hz.sh $(IOC) $(DEV)")
 
 ### Forward events with EVR - it has to be disabled for the loopback link
 #pcidiagset 9 0 0
