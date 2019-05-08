@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # require mrfioc2,2.2.0-rc5
 # require iocStats,ae5d083
 
