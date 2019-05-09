@@ -19,6 +19,10 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
     <IOC>MTCA</IOC>
+    <DEVL>EVRL</DEVL>
+    <DEV1>EVR1</DEV1>
+    <DEV2>EVR2</DEV2>
+    <DEV0>EVM</DEV0>
     <SYS>$(IOC)</SYS>
   </macros>
   <name></name>
@@ -40,7 +44,7 @@
         <path>evr-mtca-300u.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <D>EVRL</D>
+          <D>$(DEVL)</D>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -59,7 +63,7 @@
     <border_width>4</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -96,7 +100,6 @@ $(pv_value)</tooltip>
         <path>evr-mtca-300u.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <D>EVR1</D>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -115,7 +118,7 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -152,7 +155,6 @@ $(pv_value)</tooltip>
         <path>evm-mtca-300.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <D>EVG</D>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -171,7 +173,7 @@ $(pv_value)</tooltip>
     <border_width>4</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -179,7 +181,7 @@ $(pv_value)</tooltip>
     </foreground_color>
     <height>40</height>
     <image></image>
-    <name>EVG</name>
+    <name>EVM</name>
     <push_action_index>0</push_action_index>
     <pv_name></pv_name>
     <pv_value />
@@ -191,7 +193,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <scripts />
     <style>0</style>
-    <text>EVG</text>
+    <text>EVM</text>
     <toggle_button>false</toggle_button>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -224,14 +226,14 @@ $(pv_value)</tooltip>
     <effect_3d>true</effect_3d>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
       <color red="192" green="192" blue="192" />
     </foreground_color>
     <height>40</height>
-    <name>EVG</name>
+    <name>EVM</name>
     <off_color>
       <color red="0" green="100" blue="0" />
     </off_color>
@@ -240,7 +242,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVGD:Link-Sts</pv_name>
+    <pv_name>$(IOC)-$(DEV0):Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -282,7 +284,7 @@ $(pv_value)</tooltip>
     <effect_3d>true</effect_3d>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -298,7 +300,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVR1:Link-Sts</pv_name>
+    <pv_name>$(IOC)-$(DEV1):Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -340,7 +342,7 @@ $(pv_value)</tooltip>
     <effect_3d>true</effect_3d>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -356,7 +358,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVRL:Link-Sts</pv_name>
+    <pv_name>$(IOC)-$(DEVL):Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -389,12 +391,12 @@ $(pv_value)</tooltip>
     <border_width>4</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="19" style="1" pixels="false">Header 1</opifont.name>
+      <opifont.name fontName="Sans" height="18" style="1" pixels="false">Header 1</opifont.name>
     </font>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
-    <height>49</height>
+    <height>45</height>
     <horizontal_alignment>1</horizontal_alignment>
     <name>Label</name>
     <rules />
@@ -410,7 +412,7 @@ $(pv_value)</tooltip>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Label</widget_type>
-    <width>326</width>
+    <width>370</width>
     <wrap_words>false</wrap_words>
     <wuid>57b4ee7b:16a24e50abb:-5a44</wuid>
     <x>12</x>
@@ -422,7 +424,6 @@ $(pv_value)</tooltip>
         <path>evr-mtca-300u.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <D>EVR2</D>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -441,7 +442,7 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
@@ -494,14 +495,14 @@ $(pv_value)</tooltip>
     <effect_3d>true</effect_3d>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
       <color red="192" green="192" blue="192" />
     </foreground_color>
     <height>40</height>
-    <name>EVR2</name>
+    <name>LED</name>
     <off_color>
       <color red="0" green="100" blue="0" />
     </off_color>
@@ -510,7 +511,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVR2:Link-Sts</pv_name>
+    <pv_name>$(IOC)-$(DEV2):Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -546,19 +547,19 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
     <format_type>0</format_type>
-    <height>24</height>
+    <height>21</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>H_EVRL</name>
+    <name>HEARTBEAT</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVRL:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(IOC)-$(DEVL):Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -576,7 +577,7 @@ $(pv_value)</tooltip>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Text Update</widget_type>
-    <width>64</width>
+    <width>70</width>
     <wrap_words>false</wrap_words>
     <wuid>57b4ee7b:16a24e50abb:-5929</wuid>
     <x>192</x>
@@ -598,19 +599,19 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
     <format_type>0</format_type>
-    <height>24</height>
+    <height>21</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>H_EVR2</name>
+    <name>Text Update</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR2:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(IOC)-$(DEV2):Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -628,7 +629,7 @@ $(pv_value)</tooltip>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Text Update</widget_type>
-    <width>64</width>
+    <width>70</width>
     <wrap_words>false</wrap_words>
     <wuid>57b4ee7b:16a24e50abb:-5786</wuid>
     <x>192</x>
@@ -650,19 +651,19 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
     <format_type>0</format_type>
-    <height>24</height>
+    <height>21</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>H_EVR1</name>
+    <name>Text Update_1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR1:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(IOC)-$(DEV1):Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -680,7 +681,7 @@ $(pv_value)</tooltip>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Text Update</widget_type>
-    <width>64</width>
+    <width>70</width>
     <wrap_words>false</wrap_words>
     <wuid>57b4ee7b:16a24e50abb:-5783</wuid>
     <x>192</x>
@@ -702,19 +703,19 @@ $(pv_value)</tooltip>
     <border_width>1</border_width>
     <enabled>true</enabled>
     <font>
-      <opifont.name fontName="Cantarell" height="11" style="0" pixels="false">Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0" pixels="false">Default</opifont.name>
     </font>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
     <format_type>0</format_type>
-    <height>24</height>
+    <height>21</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>H_EVG</name>
+    <name>Text Update_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVGD:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(IOC)-$(DEV0):Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -732,7 +733,7 @@ $(pv_value)</tooltip>
     <vertical_alignment>1</vertical_alignment>
     <visible>true</visible>
     <widget_type>Text Update</widget_type>
-    <width>64</width>
+    <width>70</width>
     <wrap_words>false</wrap_words>
     <wuid>57b4ee7b:16a24e50abb:-5780</wuid>
     <x>192</x>

@@ -17,10 +17,18 @@ var evrMrmTimeNSOverflowThreshold 100000
 
 iocInit()
 
+# Dump the PV-s
+dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_img.ver"
+dbl > "$(IOC)-$(DEV)_PVs.list"
+
 # FDIV=1 for the external RF does not work so it has to be done during the runtime
 dbpf $(IOC)-$(DEV):EvtClk-RFDiv-SP 1
 
 dbpf $(IOC)-$(DEV):1ppsInp-Sel "Sys Clk"
+
+# Set trigger event for tests EVT_TEST = 255
+dbpf $(IOC)-$(DEV):TrigEvt6-EvtCode-SP 255
+dbpf $(IOC)-$(DEV):TrigEvt6-TrigSrc-Sel "Mxc0"
 
 # Set EVM as master
 dbpf $(IOC)-$(DEV):Enable-Sel "Ena Master"
@@ -47,6 +55,3 @@ dbpf $(IOC)-$(DEV):TrigEvt7-TrigSrc-Sel "Mxc7"
 # Is there something similar to sleep(5)
 # dbpf $(IOC)-$(DEV):SyncTimestamp-Cmd 1
 
-# Dump the PV-s
-dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_img.ver"
-dbl > "$(IOC)-$(DEV)_PVs.list"

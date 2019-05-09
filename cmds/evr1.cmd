@@ -1,3 +1,4 @@
+# FPGA img ver: 207.7
 
 require mrfioc2,2.2.0-rc5
 #require iocStats,ae5d083
@@ -13,6 +14,10 @@ var evrMrmTimeNSOverflowThreshold 100000
 #dbLoadRecords("../db/cnt.db")
 
 iocInit()
+
+# Dump the PV-s
+dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_img.ver"
+dbl > "$(IOC)-$(DEV)_PVs.list"
 
 # Set delay compensation to 70 ns, needed to avoid timestamp issue
 dbpf $(IOC)-$(DEV):DC-Tgt-SP 70
