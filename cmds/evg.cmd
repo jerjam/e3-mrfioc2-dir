@@ -10,7 +10,7 @@ epicsEnvSet("HeartBeatEvtCODE", "122")
 epicsEnvSet("ESSEvtClockRate", "88.0525")
 
 mrmEvgSetupPCI($(DEV), "08:00.0")
-dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(DEV), EVG=$(DEV), FEVT=$(ESSEvtClockRate), FRF=$(ESSEvtClockRate), FDIV=1")
+dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(DEV), EVG=$(DEV), FEVT=$(ESSEvtClockRate), FRF=$(ESSEvtClockRate), RFDIV=1")
 
 # needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
@@ -22,7 +22,7 @@ dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_img.ver"
 dbl > "$(IOC)-$(DEV)_PVs.list"
 
 # FDIV=1 for the external RF does not work so it has to be done during the runtime
-dbpf $(IOC)-$(DEV):EvtClk-RFDiv-SP 1
+# dbpf $(IOC)-$(DEV):EvtClk-RFDiv-SP 1
 
 dbpf $(IOC)-$(DEV):1ppsInp-Sel "Sys Clk"
 
