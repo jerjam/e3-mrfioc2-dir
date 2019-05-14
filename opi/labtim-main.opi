@@ -867,7 +867,7 @@ $(pv_value)</tooltip>
     <format_type>0</format_type>
     <height>24</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>H_EVG_3</name>
+    <name>H_EVR2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
     <pv_name>$(IOC)-EVR2:FwVer-I</pv_name>
@@ -919,7 +919,7 @@ $(pv_value)</tooltip>
     <format_type>0</format_type>
     <height>24</height>
     <horizontal_alignment>0</horizontal_alignment>
-    <name>H_EVG_4</name>
+    <name>H_EVRL</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
     <pv_name>$(IOC)-EVRL:FwVer-I</pv_name>
@@ -1088,7 +1088,7 @@ $(pv_value)</tooltip>
     <name>H_EVM</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVMU:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(IOC)-EVMD:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />

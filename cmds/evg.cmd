@@ -1,5 +1,3 @@
-# EVG FPGA img version: 207.8
-
 require mrfioc2, 2.2.0-rc5
 
 epicsEnvSet("IOC", "MTCA")
@@ -18,8 +16,8 @@ var evrMrmTimeNSOverflowThreshold 100000
 iocInit()
 
 # Dump the PV-s
-dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_img.ver"
-dbl > "$(IOC)-$(DEV)_PVs.list"
+dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_PVs.list"
+dbl >> "$(IOC)-$(DEV)_PVs.list"
 
 # FDIV=1 for the external RF does not work so it has to be done during the runtime
 # dbpf $(IOC)-$(DEV):EvtClk-RFDiv-SP 1
@@ -54,4 +52,3 @@ dbpf $(IOC)-$(DEV):TrigEvt7-TrigSrc-Sel "Mxc7"
 
 # Is there something similar to sleep(5)
 # dbpf $(IOC)-$(DEV):SyncTimestamp-Cmd 1
-

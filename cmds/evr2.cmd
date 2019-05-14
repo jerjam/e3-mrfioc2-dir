@@ -2,9 +2,9 @@ require mrfioc2,2.2.0-rc5
 #require iocStats,ae5d083
 
 epicsEnvSet("IOC", "MTCA")
-epicsEnvSet("DEV", "EVR1")
+epicsEnvSet("DEV", "EVR2")
 epicsEnvSet("ESSEvtClockRate", "88.0525")
-mrmEvrSetupPCI("$(DEV)", "0a:00.0")
+mrmEvrSetupPCI("$(DEV)", "09:00.0")
 dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(ESSEvtClockRate)")
 
 # needed with software timestamp source w/o RT thread scheduling
