@@ -2,6 +2,8 @@
 
 # EVM
 * Once in EVG mode, the TX/RX8 does not work.
+* EVMU->Link8
+* FCT-Link8-Sts always OK
 
 # mTCA-mini mapping:
 

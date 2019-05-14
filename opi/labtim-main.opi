@@ -1088,7 +1088,7 @@ $(pv_value)</tooltip>
     <name>H_EVM</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVMD:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(IOC)-EVMU:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />

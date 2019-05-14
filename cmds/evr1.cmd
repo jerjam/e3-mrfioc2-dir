@@ -22,10 +22,15 @@ dbpf $(IOC)-$(DEV):DC-Tgt-SP 70
 
 # Set the LED event 0 to event 14
 dbpf $(IOC)-$(DEV):Evt-Blink0-SP 14
-dbl > "$(IOC)-$(DEV)_PVs.list"
+
+### EVNT field 14 to get processed on software (EPICS) event 14
+dbpf $(IOC)-$(DEV):Time-I.EVNT 125
+dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=125"
+
 
 ### Generate pulses with outputs
 ### Configure one delay generator
+# dbpf $(IOC)-$(DEV):DlyGen0-Evt-Trig0-SP $(EVENTCODE=14)
 dbpf $(IOC)-$(DEV):DlyGen0-Evt-Trig0-SP $(EVENTCODE=14)
 dbpf $(IOC)-$(DEV):DlyGen0-Width-SP $(WIDTH=1000)
 ### MTCA EVR Front Panel OUT0 trigger from DlyGen0 (delay generator 0)

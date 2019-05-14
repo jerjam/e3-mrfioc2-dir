@@ -18,4 +18,8 @@ iocInit()
 # Dump the PV-s
 dbpr $(IOC)-$(DEV):FwVer-I > "$(IOC)-$(DEV)_PVs.list"
 dbl >> "$(IOC)-$(DEV)_PVs.list"
+#===============================
 
+### EVNT field 14 to get processed on software (EPICS) event 125
+dbpf $(IOC)-$(DEV)D:Time-I.EVNT 125
+dbpf $(IOC)-$(DEV)D:Time-I.INP "@OBJ=EVRL, Code=125"
