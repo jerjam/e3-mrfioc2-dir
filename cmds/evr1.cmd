@@ -23,7 +23,7 @@ dbpf $(IOC)-$(DEV):DC-Tgt-SP 70
 # Set the LED event 0 to event 14
 dbpf $(IOC)-$(DEV):Evt-Blink0-SP 14
 
-### EVNT field 14 to get processed on software (EPICS) event 14
+### EVT_PPS 125 to get processed on software (EPICS) event 14
 dbpf $(IOC)-$(DEV):Time-I.EVNT 125
 dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=125"
 

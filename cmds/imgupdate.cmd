@@ -1,10 +1,11 @@
 require mrfioc2, 2.2.0-rc5
 epicsEnvSet("DEV", "EVM")
 
+# Execute with iocsh.bash -c 'epicsEnvSet("LSPCI", "08:00.0")'
 # If EVM update
-mrmEvgSetupPCI("$(DEV)", "07:00.0")
+mrmEvgSetupPCI("$(DEV)", "$LSPCI")
 # If EVR update:
-# mrmEvrSetupPCI("$(DEV)", "08:00.0")
+# mrmEvrSetupPCI("$(DEV)", "$LSPCI")
 iocInit()
 
 # The EVM image is around 12MB

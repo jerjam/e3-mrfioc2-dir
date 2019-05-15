@@ -18,3 +18,4 @@ cmds/random_tmp
 core*
 *.fim
 *.ver
+test/venv/
