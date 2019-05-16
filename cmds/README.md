@@ -6,8 +6,10 @@
 * FCT-Link8-Sts always OK
 
 # mTCA-mini mapping:
-
-AMC1 -> "0a:00.0"
-AMC2 -> "09:00.0"
-AMC5 -> "07:00.0"
-AMC6 -> "08:00.0"
+* AMC1 -> CPU
+* AMC2 -> "0a:00.0"
+* AMC3 -> "09:00.0"
+* AMC4 -> ?"05:00.0"?
+* AMC5 -> ?"06:00.0"?
+* AMC6 -> "07:00.0"
+* AMC7 -> "08:00.0"
