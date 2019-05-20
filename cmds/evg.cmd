@@ -1,6 +1,6 @@
 require mrfioc2, 2.2.0-rc5
 
-epicsEnvSet("IOC", "MTCA")
+epicsEnvSet("IOC", "TIM")
 epicsEnvSet("DEV", "EVG")
 
 epicsEnvSet("MainEvtCODE", "14")
