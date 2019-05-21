@@ -7,3 +7,5 @@ dbLoadRecords("../db/cnt.db", "SYS=$(IOC), D=$(DEV)")
 iocInit()
 
 dbl > "$(IOC)-$(DEV)_PVs.list"
+
+$(DEBUG=#) system("echo aaaaaaaaaaaaaaaaa")
