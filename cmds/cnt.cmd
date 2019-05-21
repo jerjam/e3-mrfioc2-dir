@@ -8,4 +8,5 @@ iocInit()
 
 dbl > "$(IOC)-$(DEV)_PVs.list"
 
-$(DEBUG=#) system("echo aaaaaaaaaaaaaaaaa")
+$(DEBUG=#)system("echo aaaaaaaaaaaaaaaaa")
+$(PROD=#)system("echo bbbbbbbbbbbbbbbbb")
