@@ -71,13 +71,14 @@ ifneq ($(SNCSEQ),)
     timseqstSupport_LIBS += seq pv
     timseqst_LIBS += seq pv
 
-    # Build sncProgram as a standalone program
-    PROD_HOST += sncProgram
-    sncProgram_SNCFLAGS += +m
+    # Build sncTim as a standalone program
+    PROD_HOST += sncTim
+    sncTim_SNCFLAGS += +m
     # A .st sequence program *is* pre-processed:
-    sncProgram_SRCS += sncProgram.st
-    sncProgram_LIBS += seq pv
-    sncProgram_LIBS += $(EPICS_BASE_HOST_LIBS)
+    # sncTim_SRCS += sncTim.st
+    sncTim_SRCS += sncTim.st
+    sncTim_LIBS += seq pv
+    sncTim_LIBS += $(EPICS_BASE_HOST_LIBS)
 endif
 
 # Link QSRV (pvAccess Server) if available

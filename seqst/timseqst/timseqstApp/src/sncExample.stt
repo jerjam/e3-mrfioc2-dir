@@ -5,7 +5,7 @@ monitor v;
 
 ss ss1 {
     state init {
-	when (delay(10)) {
+	when (delay(1)) {
 	    printf("sncExample: Startup delay over\n");
 	} state low
     }
