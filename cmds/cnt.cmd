@@ -5,8 +5,8 @@
 epicsEnvSet("PROD", "")
 $(DEBUG=#)epicsEnvSet("PROD", "#")
 
-epicsEnvSet("IOC", "ICS-LAB:DIA")
-epicsEnvSet("DEV", "CNT-0")
+epicsEnvSet("IOC", "TEST")
+epicsEnvSet("DEV", "CNT")
 dbLoadRecords("../db/cnt.db", "SYS=$(IOC), D=$(DEV)")
 iocInit()
 

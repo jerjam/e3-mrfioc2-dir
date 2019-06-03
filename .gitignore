@@ -20,4 +20,8 @@ core*
 *.ver
 test/venv/
 .DS_Store
+O.*
+*.a
+*.so
+bin/
 
