@@ -3,7 +3,7 @@
 require mrfioc2,2.2.0-rc5
 require iocStats,ae5d083
 
-epicsEnvSet("IOC", "MTCA")
+epicsEnvSet("IOC", "TIM")
 epicsEnvSet("DEV", "EVRL")
 epicsEnvSet("ESSEvtClockRate", "88.0525")
 mrmEvrSetupPCI("$(DEV)", "0a:00.0")
@@ -19,6 +19,10 @@ dbLoadRecords("../db/cnt.db", "SYS=$(IOC), D=$(DEV)")
 
 #INITIALIZATION
 iocInit()
+
+### Set the LED event 0 to event 14
+dbpf $(IOC)-$(DEV):Evt-Blink0-SP 14
+dbl > "$(IOC)-$(DEV)_PVs.list"
 
 ### Set delay compensation to 70 ns, needed to avoid timestamp issue
 dbpf $(IOC)-$(DEV):DC-Tgt-SP 70
@@ -55,10 +59,6 @@ dbpf $(IOC)-$(DEV):SoftSeq0-Load-Cmd 1
 
 ### Enable the sequencer
 dbpf $(IOC)-$(DEV):SoftSeq0-Enable-Cmd 1
-
-### Set the LED event 0 to event 14
-dbpf $(IOC)-$(DEV):Evt-Blink0-SP 14
-dbl > "$(IOC)-$(DEV)_PVs.list"
 
 ### Run the script that configures the events and timestamps of the sequence, more information below ###
 system("/bin/bash ../iocsh/evr_seq_ev14_14Hz.bash $(IOC) $(DEV)")
