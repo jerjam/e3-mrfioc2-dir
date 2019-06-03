@@ -32,3 +32,11 @@ record(ai, "$(SYS,undefined)-$(D,undefined):Cnt-Inp") {
   field(VAL , "0")
   field(INP , "")
 }
+
+record(calcout, "$(SYS,undefined)-$(D,undefined):Ten")
+{
+    field(DESC, "1 Hz counter upto 10")
+    field(CALC, "(A<10)?A+1:1")
+    field(SCAN, "1 second")
+    field(INPA, "$(SYS,undefined)-$(D,undefined):Ten")
+}
