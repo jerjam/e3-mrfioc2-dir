@@ -1,0 +1,3 @@
+SNCSEQ = /home/jerzy/epics_env/epics-modules/seq/
+EPICS_BASE = /home/jerzy/epics_env/epics-base
+
