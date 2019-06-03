@@ -19,3 +19,5 @@ core*
 *.fim
 *.ver
 test/venv/
+.DS_Store
+

@@ -18,7 +18,7 @@
   <height>600</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
-    <IOC>TIM</IOC>
+    <IOC>MTCA</IOC>
     <SYS>$(IOC)</SYS>
   </macros>
   <name></name>
