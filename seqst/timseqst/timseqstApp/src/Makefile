@@ -81,6 +81,25 @@ ifneq ($(SNCSEQ),)
     sncTim_LIBS += $(EPICS_BASE_HOST_LIBS)
 endif
 
+ifneq ($(SNCSEQ),)
+    ## Build sncExample into timseqstSupport
+    #sncEVG_SNCFLAGS += +r
+    #timseqst_DBD += sncExample.dbd
+    ## A .stt sequence program is *not* pre-processed:
+    #timseqstSupport_SRCS += sncEVG.stt
+    #timseqstSupport_LIBS += seq pv
+    #timseqst_LIBS += seq pv
+
+    # Build sncEVG as a standalone program
+    PROD_HOST += sncEVG
+    sncEVG_SNCFLAGS += +m
+    # A .st sequence program *is* pre-processed:
+    # sncEVG_SRCS += sncEVG.st
+    sncEVG_SRCS += sncEVG.st
+    sncEVG_LIBS += seq pv
+    sncEVG_LIBS += $(EPICS_BASE_HOST_LIBS)
+endif
+
 # Link QSRV (pvAccess Server) if available
 ifdef EPICS_QSRV_MAJOR_VERSION
     timseqst_LIBS += qsrv

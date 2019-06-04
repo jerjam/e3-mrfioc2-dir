@@ -1,5 +1,5 @@
-program sncExample
-//program sncEVG
+program sncEVG
+//program sncExample
 //double v;
 //assign v to "{IOC}-{DEV}:Ten";
 //monitor v;
