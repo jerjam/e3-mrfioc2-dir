@@ -18,9 +18,8 @@
   <height>600</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
-    <IOCLAB>MTCA5U</IOCLAB>
-    <SYS>$(IOC)</SYS>
-    <IOCTM>TM</IOCTM>
+    <SYS5U>MTCA5U</SYS5U>
+    <SYSTM>TM</SYSTM>
   </macros>
   <name></name>
   <rules />
@@ -42,6 +41,7 @@
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVRL</D>
+          <SYS>$(SYS5U)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -98,6 +98,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVR1</D>
+          <SYS>$(SYS5U)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -154,6 +155,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVG</D>
+          <SYS>$(SYS5U)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -241,7 +243,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVGU:Link-Sts</pv_name>
+    <pv_name>$(SYS5U)-EVGU:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -299,7 +301,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVR1:Link-Sts</pv_name>
+    <pv_name>$(SYS5U)-EVR1:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -357,7 +359,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVRL:Link-Sts</pv_name>
+    <pv_name>$(SYS5U)-EVRL:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -424,6 +426,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVR2</D>
+          <SYS>$(SYS5U)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -511,7 +514,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVR2:Link-Sts</pv_name>
+    <pv_name>$(SYS5U)-EVR2:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -559,7 +562,7 @@ $(pv_value)</tooltip>
     <name>H_EVRL</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVRL:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYS5U)-EVRL:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -611,7 +614,7 @@ $(pv_value)</tooltip>
     <name>H_EVR2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR2:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYS5U)-EVR2:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -663,7 +666,7 @@ $(pv_value)</tooltip>
     <name>H_EVR1</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR1:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYS5U)-EVR1:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -715,7 +718,7 @@ $(pv_value)</tooltip>
     <name>H_EVG</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVGU:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYS5U)-EVGU:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -767,7 +770,7 @@ $(pv_value)</tooltip>
     <name>H_EVG</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVG:FwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVG:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -819,7 +822,7 @@ $(pv_value)</tooltip>
     <name>H_EVG_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR1:FwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVR1:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -871,7 +874,7 @@ $(pv_value)</tooltip>
     <name>H_EVR2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR2:FwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVR2:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -923,7 +926,7 @@ $(pv_value)</tooltip>
     <name>H_EVRL</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVRL:FwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVRL:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -954,6 +957,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVM</D>
+          <SYS>$(SYS5U)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -1041,7 +1045,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVMU:Link-Sts</pv_name>
+    <pv_name>$(SYS5U)-EVMU:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1089,7 +1093,7 @@ $(pv_value)</tooltip>
     <name>H_EVM</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVMU:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYS5U)-EVMU:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1141,7 +1145,7 @@ $(pv_value)</tooltip>
     <name>H_EVM</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVM:FwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVM:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1172,6 +1176,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVR</D>
+          <SYS>$(SYS5U)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -1259,7 +1264,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOC)-EVR:Link-Sts</pv_name>
+    <pv_name>$(SYS5U)-EVR:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1307,7 +1312,7 @@ $(pv_value)</tooltip>
     <name>H_EVR</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYS5U)-EVR:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1359,7 +1364,7 @@ $(pv_value)</tooltip>
     <name>H_EVR</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR:FwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVR:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1411,7 +1416,7 @@ $(pv_value)</tooltip>
     <name>H_EVG_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVG:SwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVG:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1463,7 +1468,7 @@ $(pv_value)</tooltip>
     <name>H_EVM_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVM:SwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVM:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1515,7 +1520,7 @@ $(pv_value)</tooltip>
     <name>H_EVG_4</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR1:SwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVR1:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1567,7 +1572,7 @@ $(pv_value)</tooltip>
     <name>H_EVR2_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR2:SwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVR2:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1619,7 +1624,7 @@ $(pv_value)</tooltip>
     <name>H_EVRL_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVRL:SwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVRL:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1671,7 +1676,7 @@ $(pv_value)</tooltip>
     <name>H_EVR_2</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOC)-EVR:SwVer-I</pv_name>
+    <pv_name>$(SYS5U)-EVR:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1702,7 +1707,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVG</D>
-          <IOC>$(IOCTM)</IOC>
+          <SYS>$(SYSTM)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -1790,7 +1795,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOCTM)-EVGU:Link-Sts</pv_name>
+    <pv_name>$(SYSTM)-EVGU:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -1838,7 +1843,7 @@ $(pv_value)</tooltip>
     <name>H_EVG_5</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOCTM)-EVGU:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYSTM)-EVGU:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1890,7 +1895,7 @@ $(pv_value)</tooltip>
     <name>H_EVG_6</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOCTM)-EVG:FwVer-I</pv_name>
+    <pv_name>$(SYSTM)-EVG:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1942,7 +1947,7 @@ $(pv_value)</tooltip>
     <name>H_EVG_7</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOCTM)-EVG:SwVer-I</pv_name>
+    <pv_name>$(SYSTM)-EVG:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -1973,7 +1978,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <D>EVR</D>
-          <IOC>$(IOCTM)</IOC>
+          <SYS>$(SYSTM)</SYS>
         </macros>
         <mode>0</mode>
         <description></description>
@@ -2061,7 +2066,7 @@ $(pv_value)</tooltip>
       <color red="0" green="255" blue="0" />
     </on_color>
     <on_label>ON</on_label>
-    <pv_name>$(IOCTM)-EVR:Link-Sts</pv_name>
+    <pv_name>$(SYSTM)-EVR:Link-Sts</pv_name>
     <pv_value />
     <rules />
     <scale_options>
@@ -2109,7 +2114,7 @@ $(pv_value)</tooltip>
     <name>H_EVR_3</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOCTM)-EVR:Cnt-LinkTimo-I</pv_name>
+    <pv_name>$(SYSTM)-EVR:Cnt-LinkTimo-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2161,7 +2166,7 @@ $(pv_value)</tooltip>
     <name>H_EVR_4</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOCTM)-EVR:FwVer-I</pv_name>
+    <pv_name>$(SYSTM)-EVR:FwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
@@ -2213,7 +2218,7 @@ $(pv_value)</tooltip>
     <name>H_EVR_5</name>
     <precision>0</precision>
     <precision_from_pv>true</precision_from_pv>
-    <pv_name>$(IOCTM)-EVR:SwVer-I</pv_name>
+    <pv_name>$(SYSTM)-EVR:SwVer-I</pv_name>
     <pv_value />
     <rotation_angle>0.0</rotation_angle>
     <rules />
