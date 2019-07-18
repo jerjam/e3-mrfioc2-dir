@@ -3,10 +3,11 @@
 require mrfioc2,2.2.0-rc5
 require iocStats,ae5d083
 
-epicsEnvSet("IOC", "TIM")
+epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVRL")
 epicsEnvSet("ESSEvtClockRate", "88.0525")
 mrmEvrSetupPCI("$(DEV)", "0a:00.0")
+#mrmEvrSetupPCI("$(DEV)", "09:00.0")
 dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(ESSEvtClockRate)")
 
 ### needed with software timestamp source w/o RT thread scheduling
@@ -38,8 +39,8 @@ dbpf $(IOC)-$(DEV):TimeSrc-Sel 2
 ### TSE field -2 to get timestamp from device support (timing)
 ##NOT SUPPORTED: dbpf $(IOC)-$(DEV):Time-I.TSE -2
 ### EVNT field 14 to get processed on software (EPICS) event 14
-dbpf $(IOC)-$(DEV):Time-I.EVNT 14
-dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=EVRL, Code=14"
+dbpf $(IOC)-$(DEV):Time-I.EVNT 125
+dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=EVRL, Code=125"
 
 ### Set up the prescaler that will trigger the sequencer at 14 Hz ###
 ### The value of the prescaler is the integer which gives the expected frequency (14 Hz in this example) when the event frequency (88.0525 MHz for ESS) is divided by the integer: 88.0525 MHz / 6289464 = 14 Hz
@@ -75,63 +76,63 @@ dbpf $(IOC)-$(DEV):DlyGen0-Width-SP $(WIDTH=1000)
 dbpf $(IOC)-$(DEV):OutFP0-Src-SP 0
 
 ### MTCA EVR Backplane0, RX17 (0)
-dbpf $(IOC)-$(DEV):OutBack0-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack1-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack2-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack3-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack4-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack5-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack6-Src-SP 0
-dbpf $(IOC)-$(DEV):OutBack7-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack0-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack1-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack2-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack3-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack4-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack5-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack6-Src-SP 0
+#dbpf $(IOC)-$(DEV):OutBack7-Src-SP 0
 
 ### Set TCLKA to low, enable it and power it up
-dbpf $(IOC)-$(DEV):OutTCLKA-Src-SP 63
-dbpf $(IOC)-$(DEV):OutTCLKA-Ena-Sel 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pwr-Sel 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Src-SP 63
+#dbpf $(IOC)-$(DEV):OutTCLKA-Ena-Sel 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pwr-Sel 1
 ### TCLKA is 40-bit pattern, set the starting 20 bits to 1 (and the rest to 0 - default)
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BF 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BE 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BD 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BC 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BB 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BA 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B9 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B8 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B7 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B6 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B5 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B4 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B3 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B2 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B1 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B0 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BF 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BE 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BD 1
-dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BC 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BF 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BE 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BD 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BC 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BB 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BA 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B9 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B8 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B7 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B6 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B5 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B4 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B3 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B2 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B1 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B0 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BF 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BE 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BD 1
+#dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BC 1
 
 ### Set TCLKB to low, enable it and power it up
-dbpf $(IOC)-$(DEV):OutTCLKB-Src-SP 63
-dbpf $(IOC)-$(DEV):OutTCLKB-Ena-Sel 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pwr-Sel 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Src-SP 63
+#dbpf $(IOC)-$(DEV):OutTCLKB-Ena-Sel 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pwr-Sel 1
 ### TCLKB is 40-bit pattern, set the starting 20 bits to 1 (and the rest to 0 - default)
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BF 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BE 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BD 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BC 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BB 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BA 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B9 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B8 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B7 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B6 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B5 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B4 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B3 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B2 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B1 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B0 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BF 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BE 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BD 1
-dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BC 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BF 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BE 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BD 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BC 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BB 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.BA 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B9 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B8 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B7 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B6 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B5 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B4 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B3 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B2 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B1 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low00_15-SP.B0 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BF 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BE 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BD 1
+#dbpf $(IOC)-$(DEV):OutTCLKB-Pat-Low16_31-SP.BC 1
